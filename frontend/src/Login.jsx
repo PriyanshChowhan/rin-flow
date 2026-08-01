@@ -5,7 +5,7 @@
   import Navbar from "./Navbar";
 
   const Login = () => {
-    const API_URL = import.meta.env.API_URL;
+    const API_URL = import.meta.env.VITE_API_URL;
     const { register, handleSubmit, reset } = useForm();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
@@ -24,7 +24,16 @@
         reset();
         nav("/dashboard");
       } catch (error) {
-        setMessage("Error submitting application.");
+        console.log("Full login error:", error);
+        console.log("Response data:", error.response?.data);
+        console.log("Response status:", error.response?.status);
+        console.log("Error message:", error.message);
+
+        setMessage(
+          error.response?.data?.message ||
+          error.message ||
+          "Error submitting application."
+        );
       } finally {
         setLoading(false);
       }
