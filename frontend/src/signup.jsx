@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const LoanApplication = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { register, handleSubmit, reset, watch } = useForm();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -79,7 +80,7 @@ const LoanApplication = () => {
     setMessage("");
 
     try {
-      await axios.post("http://localhost:8000/api/v1/register", {
+      await axios.post(`${API_URL}/api/v1/register`, {
         ...data,
         role: "applicant",
       });

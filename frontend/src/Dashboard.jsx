@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Dashboard = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [username, setUsername] = useState("");
   const [role, setRole] = useState(null);
@@ -21,7 +22,7 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const response = await fetch("http://localhost:8000/api/v1/getUser", {
+        const response = await fetch(`${API_URL}/api/v1getUser`, {
           credentials: "include",
         });
         const data = await response.json();
@@ -40,7 +41,7 @@ const Dashboard = () => {
       async function fetchLoanData() {
         try {
           const response = await fetch(
-            "http://localhost:8000/api/v1/applicant/loans",
+            `${API_URL}/api/v1/applicant/loans`,
             { credentials: "include" }
           );
           const data = await response.json();
@@ -54,7 +55,7 @@ const Dashboard = () => {
       async function fetchAllLoans() {
         try {
           const response = await fetch(
-            "http://localhost:8000/api/v1/loanOfficer/getAllLoans",
+            `${API_URL}/api/v1/loanOfficer/getAllLoans`,
             { credentials: "include" }
           );
           const data = await response.json();

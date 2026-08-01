@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Loan() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { id } = useParams();
   const nav = useNavigate();
 
@@ -18,7 +19,7 @@ function Loan() {
 
       try {
         const response = await fetch(
-          `http://localhost:8000/api/v1/loanOfficer/${id}`,
+          `${API_URL}/api/v1/loanOfficer/${id}`,
           {
             method: "GET",
             credentials: "include",
@@ -41,7 +42,7 @@ function Loan() {
 
   const handleAccept = async () => {
     if (!id) return;
-    const res = await fetch(`http://localhost:8000/api/v1/loanOfficer/accept/${id}`, {
+    const res = await fetch(`${API_URL}/api/v1/loanOfficer/accept/${id}`, {
       method: "POST",
       credentials: "include",
     });
@@ -51,7 +52,7 @@ function Loan() {
 
   const handleReject = async () => {
     if (!id) return;
-    const res = await fetch(`http://localhost:8000/api/v1/loanOfficer/reject/${id}`, {
+    const res = await fetch(`${API_URL}/api/v1/loanOfficer/reject/${id}`, {
       method: "POST",
       credentials: "include",
     });
@@ -61,7 +62,7 @@ function Loan() {
 
   const handleReset = async () => {
     if (!id) return;
-    const res = await fetch(`http://localhost:8000/api/v1/loanOfficer/reset/${id}`, {
+    const res = await fetch(`${API_URL}/api/v1/loanOfficer/reset/${id}`, {
       method: "POST",
       credentials: "include",
     });

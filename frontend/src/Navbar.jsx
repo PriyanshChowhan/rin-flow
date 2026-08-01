@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Navbar({ login, logout, signup, dashboard }) {
   const nav = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleLogin = () => {
     nav("/login");
   };
   const handleLogout = async () => {
     await axios.post(
-      "http://localhost:8000/api/v1/logout",
+      `${API_URL}/api/v1/logout`,
       {},
       {
         withCredentials: true,

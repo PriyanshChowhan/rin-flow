@@ -5,6 +5,7 @@
   import Navbar from "./Navbar";
 
   const Login = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const { register, handleSubmit, reset } = useForm();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
@@ -16,7 +17,7 @@
       console.log(data);
 
       try {
-        await axios.post("http://localhost:8000/api/v1/login", data, {
+        await axios.post(`${API_URL}/api/v1/login`, data, {
           withCredentials: true,
         });
         setMessage("Logged in");
