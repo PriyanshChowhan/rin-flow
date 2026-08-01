@@ -22,7 +22,7 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const response = await fetch(`${API_URL}/api/v1getUser`, {
+        const response = await fetch(`${API_URL}/api/v1/getUser`, {
           credentials: "include",
         });
         const data = await response.json();
