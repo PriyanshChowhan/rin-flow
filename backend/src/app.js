@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(cors({
-    origin: "https://rinflow-frontend.onrender.com",
+    origin: "https://rin-flow.vercel.app",
     credentials: true
 }))
 
