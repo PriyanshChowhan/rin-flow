@@ -5,7 +5,7 @@
   import Navbar from "./Navbar";
 
   const Login = () => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.API_URL;
     const { register, handleSubmit, reset } = useForm();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Navbar({ login, logout, signup, dashboard }) {
   const nav = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.API_URL;
 
   const handleLogin = () => {
     nav("/login");

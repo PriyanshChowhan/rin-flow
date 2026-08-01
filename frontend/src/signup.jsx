@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const LoanApplication = () => {
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = import.meta.env.API_URL;
   const { register, handleSubmit, reset, watch } = useForm();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
